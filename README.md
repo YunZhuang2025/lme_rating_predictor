@@ -56,13 +56,6 @@ Or use requirements.txt:
 ```bash
 pip install -r requirements.txt
 ```
-
-### Hardware Requirements
-
-- **Memory:** At least 2GB
-- **Disk:** 100MB available space
-- **CPU:** No special requirements
-
 ---
 
 ## Quick Start
