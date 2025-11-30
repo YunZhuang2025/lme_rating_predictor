@@ -134,6 +134,17 @@ class LMERatingPredictor:
         self.fixed_effects = self.params['fixed_effects']
         self.random_effects = self.params['random_effects']
         self.feature_names = self.params['feature_names'][0]
+        
+        # 重新排序特征名称为指定顺序
+        desired_order = ['N1_amp', 'N2_amp', 'P2_amp', 'N1_lat', 'N2_lat', 'P2_lat', 
+                        'ERP_mag', 'Alpha_mag', 'Beta_mag', 'Gamma_mag']
+        # 验证所有特征都存在
+        if set(self.feature_names) == set(desired_order):
+            self.feature_names = desired_order
+        else:
+            if not silent:
+                print("⚠️  警告: 特征名称与预期不匹配，保持原顺序")
+        
         self.data_stats = self.params.get('data_stats', {})
         self.model_info = self.params['model_info']
         
@@ -963,16 +974,16 @@ def demo():
     
     np.random.seed(42)
     feature_history = pd.DataFrame({
-        'erp_N2': np.random.normal(-17, 3, 20),
-        'erp_P2': np.random.normal(13.5, 2, 20),
-        'erp_N1': np.random.normal(-9, 1.5, 20),
-        'latency_N2': np.random.normal(200, 15, 20),
-        'latency_P2': np.random.normal(390, 20, 20),
-        'latency_N1': np.random.normal(152, 10, 20),
-        'TF_gamma': np.random.normal(2.6, 0.5, 20),
-        'TF_beta': np.random.normal(1.7, 0.3, 20),
-        'TF_LEP': np.random.normal(31, 4, 20),
-        'TF_alpha': np.random.normal(79, 8, 20)
+        'N1_amp': np.random.normal(-9, 1.5, 20),
+        'N2_amp': np.random.normal(-17, 3, 20),
+        'P2_amp': np.random.normal(13.5, 2, 20),
+        'N1_lat': np.random.normal(152, 10, 20),
+        'N2_lat': np.random.normal(200, 15, 20),
+        'P2_lat': np.random.normal(390, 20, 20),
+        'ERP_mag': np.random.normal(31, 4, 20),
+        'Alpha_mag': np.random.normal(79, 8, 20),
+        'Beta_mag': np.random.normal(1.7, 0.3, 20),
+        'Gamma_mag': np.random.normal(2.6, 0.5, 20)
     })
     
     print(f"特征历史数据: {len(feature_history)} 个试次")
@@ -988,16 +999,16 @@ def demo():
     print("-" * 80)
     
     new_features = {
-        'erp_N2': -17.5,
-        'erp_P2': 13.8,
-        'erp_N1': -9.1,
-        'latency_N2': 200,
-        'latency_P2': 392,
-        'latency_N1': 152,
-        'TF_gamma': 2.7,
-        'TF_beta': 1.7,
-        'TF_LEP': 31.2,
-        'TF_alpha': 79
+        'N1_amp': -9.1,
+        'N2_amp': -17.5,
+        'P2_amp': 13.8,
+        'N1_lat': 152,
+        'N2_lat': 200,
+        'P2_lat': 392,
+        'ERP_mag': 31.2,
+        'Alpha_mag': 79,
+        'Beta_mag': 1.7,
+        'Gamma_mag': 2.7
     }
     
     result = predictor.predict(subject_id=assigned_id, features=new_features)
