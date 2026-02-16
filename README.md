@@ -202,10 +202,10 @@ for subj_id in ['001', '002', '003']:
 
 ## Model Information
 
-- **Training dataset**: 772 subjects, 10 databases, 35,851 observations
+- **Training dataset**: 936 subjects, 11 databases, 48910 observations
 - **Features**: 10 EEG-derived features from laser-evoked potentials
 - **Model type**: Linear Mixed-Effects with random intercepts and slopes
-- **Original rating scale**: Mean = 5.25, SD = 2.36 (0-10 scale)
+- **Original rating scale**: Mean = 4.45, SD = 2.73 (0-10 scale)
 
 ## Feature Order (Important!)
 
@@ -273,8 +273,8 @@ predictor.list_registered_subjects()
 ## License & Support
 
 **Author**: Yun Zhuang  
-**Version**: v5.4 (Optimized)  
-**Date**: November 2025
+**Version**: v5.5 (Optimized)  
+**Date**: Feb 2026
 
 For questions or issues, please refer to the original publication or contact the authors.
 
