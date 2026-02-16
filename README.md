@@ -9,12 +9,12 @@ This tool predicts subjective pain ratings using 10 EEG features derived from la
 - **Latency features**: N1_lat, N2_lat, P2_lat  
 - **Magnitude features**: ERP_mag, Alpha_mag, Beta_mag, Gamma_mag
 
-The model is trained on a large-scale dataset (772 subjects, 35,851 trials) and provides both z-score predictions and original-scale pain ratings.
+The model is trained on a large-scale dataset (936 subjects, 48910 trials) and provides both z-score predictions and original-scale pain ratings.
 
 ## Key Features
 
 ✅ **Subject-specific calibration** - Registers subjects using their historical trial data (5-50 trials)  
-✅ **Automatic ID assignment** - New subjects are auto-assigned IDs starting from 773  
+✅ **Automatic ID assignment** - New subjects are auto-assigned IDs starting from 936  
 ✅ **Flexible prediction modes** - Single-trial or batch prediction  
 ✅ **Interactive CLI** - User-friendly command-line interface  
 ✅ **Confidence intervals** - Provides 95% CI for all predictions  
